@@ -3,39 +3,182 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Küresel Tatil Takvimi - Standalone</title>
+  <title>Küresel Tatil Takvimi & Köprü İzin Rehberi</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23f59e0b' stroke='%2344403c' stroke-width='1.5'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' fill='%23ffffff' font-family='-apple-system,BlinkMacSystemFont,Inter,sans-serif' font-weight='800' font-size='13' letter-spacing='-0.5'%3EMK%3C/text%3E%3C/svg%3E">
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231c1917' stroke='%2344403c' stroke-width='1.5'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' fill='%23ffffff' font-family='-apple-system,BlinkMacSystemFont,Inter,sans-serif' font-weight='800' font-size='13' letter-spacing='-0.5'%3EMK%3C/text%3E%3C/svg%3E">
-  <link rel="stylesheet" href="css/style.css">
-  
+  <link rel="stylesheet" href="css/app.css">
   <style>
-    :root { --mistral-ink: #1c1917; --mistral-slate: #78716c; --mistral-stone: #a8a29e; --mistral-hairline: #e7e5e4; --mistral-cream: #f5f5f4; --mistral-beige-deep: #d6d3d1; }
-    body { font-family: 'Inter', sans-serif; background-color: #fafaf9; color: var(--mistral-ink); }
-    h1, h2, .font-editorial { font-family: 'Newsreader', serif; }
-    .font-mono { font-family: 'JetBrains Mono', monospace; }
+    :root {
+      --mistral-ink: #1c1917;
+      --mistral-slate: #78716c;
+      --mistral-stone: #a8a29e;
+      --mistral-hairline: #e7e5e4;
+      --mistral-cream: #f5f5f4;
+      --mistral-cream-deeper: #e7e5e4;
+      --mistral-cream-light: #fafaf9;
+      --mistral-beige-deep: #d6d3d1;
+      --mistral-orange: #fa520f;
+      --mistral-orange-deep: #e04400;
+      --mistral-canvas: #0f172a;
+    }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #fafaf9;
+      color: var(--mistral-ink);
+    }
+    h1, h2, h3, .font-editorial {
+      font-family: 'Newsreader', serif;
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .bg-mistral-cream { background-color: var(--mistral-cream); }
+    .bg-mistral-cream-light { background-color: var(--mistral-cream-light); }
+    .bg-mistral-cream-deeper { background-color: var(--mistral-cream-deeper); }
     .text-mistral-ink { color: var(--mistral-ink); }
     .text-mistral-slate { color: var(--mistral-slate); }
     .text-mistral-stone { color: var(--mistral-stone); }
-    .bg-mistral-cream { background-color: var(--mistral-cream); }
+    .text-mistral-orange { color: var(--mistral-orange); }
     .border-mistral-hairline { border-color: var(--mistral-hairline); }
-    .bg-mistral-canvas { background-color: #0f172a; }
+    .border-mistral-beige-deep { border-color: var(--mistral-beige-deep); }
+    .border-mistral-orange { border-color: var(--mistral-orange); }
   </style>
 </head>
-<body class="p-4 md:p-8">
+<body class="p-4 sm:p-8">
   <div class="max-w-6xl mx-auto">
     <div class="mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
-      <div>
-        <div class="flex items-center gap-3">
-          <a href="https://github.com/melihkarasu" target="_blank" class="text-mistral-slate hover:text-teal-500 transition text-sm flex items-center gap-1">&larr; GitHub Profiline Dön</a>
-          <span class="text-mistral-stone">|</span>
-          <span class="px-2.5 py-0.5 rounded-full bg-teal-500/20 text-teal-600 text-xs font-semibold">Open Source Edition</span>
+        <div>
+          <div class="flex items-center gap-3">
+            <a href="/" class="text-mistral-slate hover:text-white transition text-sm flex items-center gap-1">
+              &larr; Vitrine Dön
+            </a>
+            <span class="text-mistral-stone">|</span>
+            <span class="px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-400 text-xs font-semibold">Mikro Uygulama #4</span>
+          </div>
+          <h1 class="text-3xl font-extrabold tracking-tight mt-1 text-mistral-ink flex items-center gap-2">
+            <span>📅</span> Küresel Tatil Takvimi & Köprü İzin Rehberi
+          </h1>
+          <p class="text-mistral-slate text-sm mt-0.5">
+            100+ ülkenin resmi tatilleri, eşzamanlı çoklu ülke karşılaştırması ve uzun hafta sonu fırsatları.
+          </p>
         </div>
-        <h1 class="text-3xl sm:text-4xl font-normal font-editorial tracking-tight mt-1.5 text-mistral-ink flex items-center gap-2"><span>📅</span> Küresel Tatil Takvimi</h1>
+
+        <!-- Dışa Aktarma Butonu -->
+        <div class="flex items-center gap-2">
+          <button onclick="exportICS()" class="px-4 py-2.5 rounded-2xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs transition shadow-lg shadow-amber-500/20 flex items-center gap-2">
+            <span>📥</span> Takvime Aktar (.ics)
+          </button>
+        </div>
       </div>
-    </div>
-    
+
+      <!-- 1. ÜLKE VE YIL SEÇİM PANELİ (MULTI-COUNTRY & YEAR SELECTOR) -->
+      <div class="p-6 rounded-3xl bg-white border border-mistral-hairline shadow-xl mb-8 space-y-5">
+        
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-mistral-slate mb-1">
+              Karşılaştırılacak Ülkeler
+            </label>
+            <p class="text-mistral-slate text-xs">
+              Varsayılan olarak <b>Türkiye</b> seçilidir. Yanına dilediğiniz kadar ülke ekleyerek eşzamanlı tatilleri görebilirsiniz:
+            </p>
+          </div>
+
+          <!-- Yıl Seçici -->
+          <div class="flex items-center gap-2 bg-white border border-mistral-hairline p-1 rounded-2xl shrink-0">
+            <button onclick="setYear(2025)" id="btn-year-2025" class="px-3 py-1.5 rounded-xl text-xs font-bold text-mistral-slate hover:text-white transition">2025</button>
+            <button onclick="setYear(2026)" id="btn-year-2026" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-amber-500 text-slate-950 transition shadow">2026</button>
+            <button onclick="setYear(2027)" id="btn-year-2027" class="px-3 py-1.5 rounded-xl text-xs font-bold text-mistral-slate hover:text-white transition">2027</button>
+          </div>
+        </div>
+
+        <!-- Seçili Ülke Rozetleri (Active Tags) -->
+        <div class="flex flex-wrap items-center gap-2" id="selected-countries-container">
+          <!-- JS ile doldurulur -->
+        </div>
+
+        <!-- Hızlı Ülke Ekleme ve Açılır Liste -->
+        <div class="pt-3 border-t border-mistral-hairline flex flex-col sm:flex-row gap-3 items-center">
+          <div class="flex flex-wrap items-center gap-1.5 text-xs flex-1">
+            <span class="text-mistral-stone text-[11px] mr-1">Hızlı Ekle:</span>
+            <button onclick="toggleCountry('DE')" class="px-2.5 py-1 rounded-lg bg-white hover:bg-mistral-cream border border-mistral-hairline text-mistral-slate transition">🇩🇪 Almanya</button>
+            <button onclick="toggleCountry('US')" class="px-2.5 py-1 rounded-lg bg-white hover:bg-mistral-cream border border-mistral-hairline text-mistral-slate transition">🇺🇸 ABD</button>
+            <button onclick="toggleCountry('GB')" class="px-2.5 py-1 rounded-lg bg-white hover:bg-mistral-cream border border-mistral-hairline text-mistral-slate transition">🇬🇧 Birleşik Krallık</button>
+            <button onclick="toggleCountry('AZ')" class="px-2.5 py-1 rounded-lg bg-white hover:bg-mistral-cream border border-mistral-hairline text-mistral-slate transition">🇦🇿 Azerbaycan</button>
+            <button onclick="toggleCountry('FR')" class="px-2.5 py-1 rounded-lg bg-white hover:bg-mistral-cream border border-mistral-hairline text-mistral-slate transition">🇫🇷 Fransa</button>
+            <button onclick="toggleCountry('IT')" class="px-2.5 py-1 rounded-lg bg-white hover:bg-mistral-cream border border-mistral-hairline text-mistral-slate transition">🇮🇹 İtalya</button>
+          </div>
+
+          <!-- Tüm Ülkeler Dropdown -->
+          <div class="w-full sm:w-64">
+            <select id="select-all-countries" onchange="if(this.value){toggleCountry(this.value); this.value='';}" class="w-full px-3 py-2 rounded-xl bg-white border border-mistral-hairline text-xs text-mistral-ink focus:border-amber-400 focus:outline-none">
+              <option value="">+ Başka bir ülke ekle...</option>
+            </select>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 2. KÖPRÜ İZİN FIRSATLARI BÖLÜMÜ (LONG WEEKENDS & BRIDGE DAYS) -->
+      <div class="p-6 rounded-3xl bg-white from-amber-500/10   border border-amber-500/30 shadow-xl mb-8 space-y-4">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2.5">
+            <span class="text-2xl">🏖️</span>
+            <div>
+              <h2 class="text-sm font-bold text-mistral-ink">Akıllı Köprü İzin ve Uzun Hafta Sonu Fırsatları</h2>
+              <p class="text-mistral-slate text-xs">Az izin günü kullanarak maksimum tatil yapabileceğiniz fırsat dönemleri:</p>
+            </div>
+          </div>
+          <span class="px-2 py-0.5 rounded-lg bg-amber-500/20 text-amber-400 text-xs font-mono font-bold" id="bridge-country-badge">
+            🇹🇷 Türkiye
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5" id="bridge-days-container">
+          <!-- JS ile doldurulur -->
+        </div>
+      </div>
+
+      <!-- 3. GÖRÜNÜM MODLARI VE FİLTRELER -->
+      <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+        <div class="flex p-1 rounded-xl bg-white border border-mistral-hairline">
+          <button onclick="setViewMode('timeline')" id="btn-view-timeline" class="px-4 py-1.5 rounded-lg text-xs font-bold bg-amber-500 text-slate-950 transition flex items-center gap-1.5 shadow">
+            <span>📋</span> Birleşik Kronolojik Liste
+          </button>
+          <button onclick="setViewMode('matrix')" id="btn-view-matrix" class="px-4 py-1.5 rounded-lg text-xs font-bold text-mistral-slate hover:text-white transition flex items-center gap-1.5">
+            <span>📊</span> Ülke Sütunları
+          </button>
+          <button onclick="setViewMode('calendar')" id="btn-view-calendar" class="px-4 py-1.5 rounded-lg text-xs font-bold text-mistral-slate hover:text-white transition flex items-center gap-1.5">
+            <span>🗓️</span> Ay Gruplu Görünüm
+          </button>
+        </div>
+
+        <div class="text-xs text-mistral-slate font-mono" id="holidays-summary-count">
+          Yükleniyor...
+        </div>
+      </div>
+
+      <!-- 4. TATİL VERİLERİ ALANI (CONTAINER) -->
+      <div id="holidays-main-container">
+        <!-- JS ile seçilen görünüm moduna göre çizilir -->
+      </div>
+
+      <div id="loading-spinner" class="py-16 text-center text-mistral-slate text-sm flex flex-col items-center gap-3">
+        <div class="w-8 h-8 rounded-full border-2 border-amber-500 border-t-transparent animate-spin"></div>
+        <span>Resmi tatil verileri ve takvimler senkronize ediliyor...</span>
+      </div>
+
+      <!-- Toast Bildirimi -->
+      <div id="tatil-toast" class="hidden fixed bottom-6 right-6 py-2.5 px-4 rounded-xl bg-amber-500 text-slate-950 font-bold text-xs shadow-2xl transition z-50"></div>
+
+      <!-- İstemci Mantığı -->
   </div>
+
+  <footer class="mt-16 text-center text-xs text-mistral-stone border-t border-mistral-hairline pt-6">
+    <p>Açık Kaynak Standalone Sürüm • Veriler: <a href="https://date.nager.at/" target="_blank" rel="noopener" class="underline hover:text-mistral-ink">Nager.Date Public Holidays API</a> • <a href="https://github.com/public-apis/public-apis" target="_blank" rel="noopener" class="underline hover:text-mistral-ink">Public APIs</a></p>
+  </footer>
+
+  <script src="js/app.js"></script>
 </body>
 </html>
