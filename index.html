@@ -87,11 +87,9 @@
             </p>
           </div>
 
-          <!-- Yıl Seçici -->
-          <div class="flex items-center gap-2 bg-white border border-mistral-hairline p-1 rounded-2xl shrink-0">
-            <button onclick="setYear(2025)" id="btn-year-2025" class="px-3 py-1.5 rounded-xl text-xs font-bold text-mistral-slate hover:text-white transition">2025</button>
-            <button onclick="setYear(2026)" id="btn-year-2026" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-amber-500 text-slate-950 transition shadow">2026</button>
-            <button onclick="setYear(2027)" id="btn-year-2027" class="px-3 py-1.5 rounded-xl text-xs font-bold text-mistral-slate hover:text-white transition">2027</button>
+          <!-- Yıl Seçici (Dinamik: Güncel yıl + sonraki 2 yıl, JS ile doldurulur) -->
+          <div class="flex items-center gap-2 bg-white border border-mistral-hairline p-1 rounded-2xl shrink-0" id="year-buttons">
+            <!-- JS ile dinamik doldurulur -->
           </div>
         </div>
 

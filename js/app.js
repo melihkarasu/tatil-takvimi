@@ -27,7 +27,7 @@ const COUNTRY_FLAGS = {
         ];
 
         let selectedCountries = ['TR']; // Varsayılan Türkiye
-        let currentYear = 2026;
+        let currentYear = new Date().getFullYear(); // Dinamik: her zaman güncel yıl
         let currentView = 'timeline'; // 'timeline' | 'matrix' | 'calendar'
         let holidaysCache = {}; // { '2026_TR': [...] }
         let allAvailableCountries = [];
@@ -84,10 +84,26 @@ const COUNTRY_FLAGS = {
           document.getElementById('bridge-country-badge').innerText = `${primaryInfo.flag} ${primaryInfo.name}`;
         }
 
+        // Dinamik yıl listesi: güncel yıl + sonraki 2 yıl (kod güncellemesi gerektirmez)
+        function getAvailableYears() {
+          const y = new Date().getFullYear();
+          return [y, y + 1, y + 2];
+        }
+
+        function renderYearButtons() {
+          const container = document.getElementById('year-buttons');
+          if (!container) return;
+          container.innerHTML = getAvailableYears().map(y => {
+            const active = (y === currentYear);
+            return `<button onclick="setYear(${y})" id="btn-year-${y}" class="px-3 py-1.5 rounded-xl text-xs font-bold ${active ? 'bg-amber-500 text-slate-950 transition shadow' : 'text-mistral-slate hover:text-white transition'}">${y}</button>`;
+          }).join('');
+        }
+
         function setYear(yr) {
           currentYear = yr;
-          [2025, 2026, 2027].forEach(y => {
+          getAvailableYears().forEach(y => {
             const btn = document.getElementById('btn-year-' + y);
+            if (!btn) return;
             if (y === yr) {
               btn.className = 'px-3 py-1.5 rounded-xl text-xs font-bold bg-amber-500 text-slate-950 transition shadow';
             } else {
@@ -422,6 +438,8 @@ const COUNTRY_FLAGS = {
 
         // Başlangıç
         document.addEventListener('DOMContentLoaded', async () => {
+          currentYear = new Date().getFullYear();
+          renderYearButtons();
           renderSelectedCountryTags();
           await fetchAvailableCountries();
           await loadData();
