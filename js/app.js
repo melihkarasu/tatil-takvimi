@@ -111,7 +111,15 @@ const COUNTRY_FLAGS = {
           "new year holiday": "Yılbaşı Tatili",
           "day after new year's day": "Yılbaşı Sonrası",
           "restore the independence of lithuania": "Litvanya Bağımsızlığının Yeniden Tesisi",
-          "day of restoration of the state of lithuania": "Litvanya Devletinin Yeniden Kuruluşu"
+          "day of restoration of the state of lithuania": "Litvanya Devletinin Yeniden Kuruluşu",
+          "german unity day": "Alman Birlik Günü",
+          "reformation day": "Reformasyon Günü",
+          "victory in europe day": "Avrupa Zafer Günü",
+          "bastille day": "Bastille Günü",
+          "veterans day": "Gaziler Günü",
+          "washington's birthday": "Washington'un Doğum Günü",
+          "thanksgiving": "Şükran Günü",
+          "early may bank holiday": "Mayıs Başı Banka Tatili"
         };
 
         // Tek noktadan Türkçe tatil adı çözümü: localName → sözlük → İngilizce name
@@ -385,8 +393,7 @@ const COUNTRY_FLAGS = {
                           <div class="flex flex-wrap items-center justify-between gap-2 p-2.5 rounded-xl bg-white border border-mistral-hairline">
                             <div class="flex items-center gap-2">
                               <span class="text-base">${cInfo.flag}</span>
-                              <span class="font-bold text-xs text-white">${trHolidayName(item)}</span>
-                              ${item.name && trHolidayName(item) !== item.name ? `<span class="text-[11px] text-mistral-slate hidden md:inline">(${item.name})</span>` : ''}
+                              <span class="font-bold text-xs text-mistral-ink">${trHolidayName(item)}</span>
                             </div>
                             <span class="text-[10px] px-2 py-0.5 rounded-md bg-white text-mistral-slate font-mono">
                               ${cInfo.name}

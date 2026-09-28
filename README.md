@@ -17,7 +17,7 @@
 - **Styling:** Tailwind CSS
 - **Design System:** Mistral AI Design System
 - **Storage:** Browser LocalStorage API
-- **API Source:** Public Holidays API
+- **API Source:** [Nager.Date Public Holidays API](https://date.nager.at/) (v3 — canlı fetch, CORS destekli). Not: API'de dil parametresi yoktur; Türkçe tatil adları `localName` + gömülü çeviri sözlüğü ile istemci tarafında çözümlenir.
 
 ## 🏆 Krediler & Açık Kaynak Teşekkürleri
 - **[OpenClaw](https://github.com/openclaw/openclaw):** Proje mimarisi ve otonom deployment.
